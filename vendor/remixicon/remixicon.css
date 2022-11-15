@@ -1,0 +1,65 @@
+/*
+
+*/
+@font-face {
+  font-family: "remixicon";
+  src: url('remixicon.eot?t=1590207869815'); /* IE9*/
+  src: url('remixicon.eot?t=1590207869815#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("remixicon.woff2?t=1590207869815") format("woff2"),
+  url("remixicon.woff?t=1590207869815") format("woff"),
+  url('remixicon.ttf?t=1590207869815') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('remixicon.svg?t=1590207869815#remixicon') format('svg'); /* iOS 4.1- */
+  font-display: swap;
+}
+
+[class^="ri-"], [class*=" ri-"] {
+  font-family: 'remixicon' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ri-anchor-line:before { content: "\ea30"; }
+.ri-award-line:before { content: "\ea8a"; }
+.ri-base-station-line:before { content: "\eaa6"; }
+.ri-bank-line:before { content: "\ea94"; }
+.ri-bar-chart-box-line:before { content: "\ea98"; }
+.ri-bank-card-line:before { content: "\ea92"; }
+.ri-check-double-line:before { content: "\eb79"; }
+.ri-database-2-line:before { content: "\ec16"; }
+.ri-funds-line:before { content: "\eda3"; }
+.ri-government-line:before { content: "\edd9"; }
+.ri-mail-send-line:before { content: "\eefc"; }
+.ri-oil-line:before { content: "\efae"; }
+.ri-plant-line:before { content: "\f007"; }
+.ri-store-line:before { content: "\f1a9"; }
+.ri-brush-line:before { content: "\eb01"; }
+.ri-newspaper-line:before { content: "\ef8f"; }
+.ri-exchange-line:before { content: "\ecad"; }
+.ri-empathize-line:before { content: "\ec98"; }
+.ri-lightbulb-line:before { content: "\eea9"; }
+.ri-community-line:before { content: "\ebba"; }
+.ri-book-line:before { content: "\ead7"; }
+.ri-facebook-fill:before { content: "\ecbc"; }
+.ri-youtube-fill:before { content: "\f2d4"; }
+.ri-instagram-fill:before { content: "\ee65"; }
+.ri-arrow-up-s-line:before { content: "\ea78"; }
+.ri-question-line:before { content: "\f045"; }
+.ri-book-open-fill:before { content: "\eada"; }
+.ri-check-line:before { content: "\eb7b"; }
+.ri-attachment-line:before { content: "\ea86"; }
+.ri-ball-pen-line:before { content: "\ea8e"; }
+.ri-focus-3-line:before { content: "\ed4c"; }
+.ri-external-link-line:before { content: "\ecaf"; }
+.ri-question-answer-line:before { content: "\f043"; }
+.ri-menu-line:before { content: "\ef3e"; }
+.ri-close-line:before { content: "\eb99"; }
+.ri-subtract-line:before { content: "\f1af"; }
+.ri-double-quotes-l:before { content: "\ec51"; }
+.ri-double-quotes-r:before { content: "\ec52"; }
+.ri-lightbulb-line:before { content: "\eea9"; }
+.ri-bar-chart-grouped-line:before { content: "\ea9b"; }
+.ri-book-2-line:before { content: "\ead3"; }
+
+
+
