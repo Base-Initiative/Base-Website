@@ -1475,8 +1475,75 @@ header.masthead .post-heading .meta a {
 .services .icon-box:hover .icon i {
   color: #af9bf7;
 }
+/* RESOURCE BUTTONS */
 
-/* Mobile Responsive Image Resizing */
+.btnresource {
+	display: flex;
+	min-height: 70px;
+  max-height: 90px;
+	padding: 0;
+	background: #f6f6f6;
+	border-radius: 5px;
+	overflow: hidden;
+  transition: ease-in-out 0.3s;
+
+	cursor: pointer;
+}
+
+.btnresource:hover {
+	background: #af9bf7;
+}
+
+.btnresource:active {
+	background: #9DD8D2;
+}
+
+.btnresource_text,
+.btnresource_icon {
+	display: inline-flex;
+	align-items: center;
+	padding: 0 24px;
+  min-height: 70px;
+	max-height: 120px;
+  text-align: justify;
+  font-size: 18px;
+  font-weight: bold;
+  color: #111;
+  
+}
+
+.btnresource_text h3 {
+  text-align: justify;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0px 0 5px 0;
+  color: #111;
+}
+
+.btnresource_text h4 {
+  text-align: justify;
+  font-size: 14px;
+  color: #999;
+  margin: 5px 0 5px 0;
+  margin: 0;
+}
+
+.text_hidden:hover {
+  display: block;
+}
+
+.btnresource i{
+  text-align: center;
+  font-size: 40px;
+  color: #3A2F5A;
+}
+
+.btnresource_icon {
+	background: rgba(0, 0, 0, 0.08);
+  min-width: 80px;
+}
+
+/* Mobile Resposnive Image Resizing */
 
 #pnb-table {
   width: 840px;
