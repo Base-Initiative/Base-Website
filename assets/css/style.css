@@ -662,6 +662,67 @@ section {
   border-color: transparent;
 }
 
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 12px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-top: 20px;
+  
+}
+
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #7eaeaa;
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+  margin-top: 2px;
+}
+
+.cta span {
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #fff;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+  width: 100%;
+  background: #83bab5;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active {
+  transform: scale(0.95);
+}
 
 /*--------------------------------------------------------------
 # Features
