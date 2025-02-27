@@ -159,7 +159,7 @@
     }
   }); */
 
-  // Scholar dashboard
+  /* Scholar dashboard
   const scholars = [
             {
                 name: "Fatin Alia binti Khairuddin",
@@ -255,7 +255,7 @@
         // Initial load
         window.onload = () => {
             populateScholarGrid(scholars);
-        };
+        }; */
 
   // Porfolio isotope and filter
   $(window).on('load', function() {
