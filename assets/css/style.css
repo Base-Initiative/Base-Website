@@ -992,7 +992,7 @@ section {
 /*--------------------------------------------------------------
 # Scholar Dashboard
 --------------------------------------------------------------*/
-        /* Status Banner 
+        /* Status Banner */
         .status-banner {
             background: #fff3cd;
             padding: 1.5rem;
@@ -1001,7 +1001,7 @@ section {
             border-left: 5px solid var(--warning-yellow);
         } 
 
-         Process Section 
+         /* Process Section 
         .process-steps {
             display: grid;
             gap: 1.5rem;
