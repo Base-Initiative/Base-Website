@@ -157,7 +157,7 @@
         items: 2
       }
     }
-  }); */
+  }); 
 
   /* Scholar dashboard
   const scholars = [
