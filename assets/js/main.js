@@ -141,7 +141,7 @@
     time: 1000
   }); */
 
-  // Testimonials carousel (uses the Owl Carousel library)
+  /* Testimonials carousel (uses the Owl Carousel library)
   $(".testimonials-carousel").owlCarousel({
     autoplay: true,
     dots: true,
@@ -157,7 +157,105 @@
         items: 2
       }
     }
-  });
+  }); */
+
+  // Scholar dashboard
+  const scholars = [
+            {
+                name: "Fatin Alia binti Khairuddin",
+                image: "images/scholars/fatin-alia.jpg",
+                course: "Actuarial Science",
+                sponsor: "Yayasan Khazanah",
+                services: ["Essay Proof-Reading", "Mock Interviews", "CV Preparation"],
+                email: "fatinaliah@gmail.com",
+                telegram: "@fritalia",
+                instagram: "@fritalia",
+                availability: "Free"
+            },
+            {
+                name: "Lee Zixuan",
+                image: "images/scholars/lee-zixuan.jpg",
+                course: "Social Science",
+                sponsor: "JPA",
+                services: ["Mock Interviews"],
+                email: "zixuanlee2017@gmail.com",
+                telegram: "@zixuan_lee",
+                instagram: "@zixuan_lee",
+                availability: "Busy"
+            },
+            // Add more scholars as needed
+        ];
+
+        function populateScholarGrid(filteredScholars) {
+            const grid = document.getElementById('scholarGrid');
+            grid.innerHTML = '';
+
+            filteredScholars.forEach(scholar => {
+                const card = document.createElement('div');
+                card.className = 'scholar-card';
+                card.innerHTML = `
+                    <img src="${scholar.image}" class="scholar-image" alt="${scholar.name}">
+                    <h2 class="scholar-name">${scholar.name}</h2>
+                    <div class="scholar-details">
+                        <p>${scholar.course}</p>
+                        <p>${scholar.sponsor}</p>
+                    </div>
+                    <div class="scholar-services">
+                        ${scholar.services.map(service => 
+                            <span class="service-tag">${service}</span>
+                        ).join('')}
+                    </div>
+                    <div class="scholar-contact">
+                        <a href="mailto:${scholar.email}" class="contact-link">
+                            <i class="fas fa-envelope"></i>${scholar.email}
+                        </a>
+                        <a href="https://t.me/${scholar.telegram}" class="contact-link">
+                            <i class="fab fa-telegram"></i>@${scholar.telegram}
+                        </a>
+                        <a href="https://instagram.com/${scholar.instagram}" class="contact-link">
+                            <i class="fab fa-instagram"></i>@${scholar.instagram}
+                        </a>
+                    </div>
+                    <div class="availability" style="color: ${scholar.availability === 'Free' ? 'var(--success-green)' : 'var(--accent-red)'}">
+                        ${scholar.availability}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.service-filter, #sponsorFilter, #courseFilter').forEach(element => {
+            element.addEventListener('change', applyFilters);
+        });
+
+        function applyFilters() {
+            const selectedServices = Array.from(document.querySelectorAll('.service-filter:checked'))
+                .map(checkbox => checkbox.value);
+            
+            const selectedSponsor = document.getElementById('sponsorFilter').value;
+            const selectedCourse = document.getElementById('courseFilter').value;
+
+            const filtered = scholars.filter(scholar => {
+                const serviceMatch = selectedServices.length === 0 || 
+                    selectedServices.every(service => scholar.services.includes(service));
+                
+                const sponsorMatch = selectedSponsor === 'all' || 
+                    scholar.sponsor.includes(selectedSponsor);
+                
+                const courseMatch = selectedCourse === 'all' || 
+                    scholar.course === selectedCourse;
+
+                return serviceMatch && sponsorMatch && courseMatch;
+            });
+
+            populateScholarGrid(filtered);
+        }
+
+        // Initial load
+        window.onload = () => {
+            populateScholarGrid(scholars);
+        };
 
   // Porfolio isotope and filter
   $(window).on('load', function() {
