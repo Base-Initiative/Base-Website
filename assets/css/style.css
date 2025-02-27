@@ -992,16 +992,16 @@ section {
 /*--------------------------------------------------------------
 # Scholar Dashboard
 --------------------------------------------------------------*/
-        /* Status Banner */
+        /* Status Banner 
         .status-banner {
             background: #fff3cd;
             padding: 1.5rem;
             border-radius: 8px;
             margin: 2rem 0;
             border-left: 5px solid var(--warning-yellow);
-        }
+        } 
 
-        /* Process Section */
+         Process Section 
         .process-steps {
             display: grid;
             gap: 1.5rem;
@@ -1023,7 +1023,7 @@ section {
             margin-bottom: 1rem;
         }
 
-        /* Services Section */
+        /* Services Section 
         .service-guide {
             background: white;
             padding: 2rem;
@@ -1050,7 +1050,7 @@ section {
             color: var(--success-green);
         }
 
-        /* Scholar Grid */
+        /* Scholar Grid 
         .scholar-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1134,7 +1134,7 @@ section {
             text-align: center;
         }
 
-        /* Filters */
+        /* Filters 
         .filters {
             display: flex;
             gap: 1.5rem;
