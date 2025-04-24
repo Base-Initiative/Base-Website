@@ -1655,6 +1655,38 @@ const scholars = [
                 `;
                 grid.appendChild(card);
             });
+          filteredScholars.forEach(scholar => {
+    // Skip if both Instagram and phone are missing
+    if ((scholar.instagram === "-" || !scholar.instagram) &&
+        (scholar.phone === "-" || !scholar.phone)) {
+        return; // Skip this scholar
+    }
+
+    const card = document.createElement('div');
+    card.className = 'scholar-card';
+    card.innerHTML = `
+        <img src="${scholar.image}" class="scholar-image" alt="${scholar.name}">
+        <h2 class="scholar-name">${scholar.name}</h2>
+        <div class="scholar-details">
+            <p><strong>Course:</strong> ${scholar.course}</p>
+            <p><strong>Sponsor:</strong> ${scholar.sponsor}</p>
+            <p><strong>Current Institution:</strong> ${scholar.currentInstitution}</p>
+            <p><strong>Previous Institution:</strong> ${scholar.previousInstitution}</p>
+        </div>
+        <div class="scholar-services">
+            ${scholar.services.map(service => 
+                `<span class="service-tag">${service}</span>`
+            ).join('')}
+        </div>
+        <div class="scholar-contact">
+            ${scholar.email !== "-" && scholar.email ? `<a href="mailto:${scholar.email}" class="contact-link"><i class="fas fa-envelope"></i>${scholar.email}</a>` : ""}
+            ${scholar.telegram !== "-" && scholar.telegram ? `<a href="https://t.me/${scholar.telegram}" class="contact-link"><i class="fab fa-telegram"></i>@${scholar.telegram}</a>` : ""}
+            ${scholar.instagram !== "-" && scholar.instagram ? `<a href="https://instagram.com/${scholar.instagram}" class="contact-link"><i class="fab fa-instagram"></i>@${scholar.instagram}</a>` : ""}
+            ${scholar.phone !== "-" && scholar.phone ? `<a href="tel:${scholar.phone}" class="contact-link"><i class="fas fa-phone"></i>${scholar.phone}</a>` : ""}
+        </div>
+    `;
+    grid.appendChild(card);
+});
         }
 
         // Filter functionality
