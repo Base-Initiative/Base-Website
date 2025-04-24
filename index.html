@@ -659,7 +659,1042 @@
             <h3>🚧 Dashboard Update Notice</h3>
             <p>THE SCHOLAR DASHBOARD IS CURRENTLY CLOSED FOR UPDATES. THE NEW VERSION WILL BE AVAILABLE SOON.</p>
         </div>
-        
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASE Initiative - Scholar Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #2c3e50;
+            --secondary-blue: #3498db;
+            --accent-red: #e74c3c;
+            --success-green: #2ecc71;
+            --warning-yellow: #f1c40f;
+            --dark-text: #2c3e50;
+            --light-text: #ecf0f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .page-header {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem 0;
+            border-bottom: 3px solid var(--secondary-blue);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Status Banner */
+        .status-banner {
+            background: #fff3cd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--warning-yellow);
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin: 3rem 0;
+        }
+
+        .process-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .process-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .service-guide {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-list {
+            columns: 2;
+            margin: 1.5rem 0;
+        }
+
+        .service-list p {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-list p i {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--success-green);
+        }
+
+        /* Scholar Grid */
+        .scholar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .scholar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .scholar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .scholar-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+            border: 3px solid var(--secondary-blue);
+        }
+
+        .scholar-name {
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .scholar-details {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .scholar-services {
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .service-tag {
+            background: #e8f4fc;
+            color: var(--primary-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .scholar-contact {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--dark-text);
+            text-decoration: none;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: #f8f9fa;
+        }
+
+        .contact-link i {
+            width: 25px;
+            text-align: center;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: #f8d7da;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--accent-red);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="page-header">
+            <h1>Scholar Dashboard</h1>
+            <p>In need of advice? These scholars are ready to have your back!</p>
+        </section>
+
+        <div class="status-banner">
+            <h3>🚧 Dashboard Update Notice</h3>
+            <p>THE SCHOLAR DASHBOARD IS CURRENTLY CLOSED FOR UPDATES. THE NEW VERSION WILL BE AVAILABLE SOON.</p>
+        </div>
+
+        <div class="service-guide">
+            <h2><i class="fas fa-hands-helping"></i> How It Works</h2>
+            <div class="process-steps">
+                <div class="process-card">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>Choose Mentor</h3>
+                    <p>Select based on expertise, availability, or background</p>
+                </div>
+                <div class="process-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Direct Contact</h3>
+                    <p>Reach out via email, Telegram, or Instagram</p>
+                </div>
+                <div class="process-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Get Response</h3>
+                    <p>Typically within 1 week of inquiry</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-guide">
+            <h2><i class="fas fa-tools"></i> Our Services</h2>
+            <div class="service-list">
+                <p><i class="fas fa-check"></i> Scholarship application guidance</p>
+                <p><i class="fas fa-check"></i> Mock interview preparation</p>
+                <p><i class="fas fa-check"></i> Essay proofreading</p>
+                <p><i class="fas fa-check"></i> CV structure review</p>
+                <p><i class="fas fa-check"></i> Course selection advice</p>
+                <p><i class="fas fa-check"></i> Assessment strategies</p>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <h3>📌 Important Guidelines</h3>
+            <ul>
+                <li>Priority given to first-time applicants</li>
+                <li>Mentors respond within 1 week</li>
+                <li>Do not contact multiple mentors for same query</li>
+                <li>Include background info in first message</li>
+            </ul>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <h3>Filter by Service:</h3>
+                <label><input type="checkbox" class="service-filter" value="Essay Proof-Reading"> Essay Proof-Reading</label>
+                <label><input type="checkbox" class="service-filter" value="Mock Interviews"> Mock Interviews</label>
+                <label><input type="checkbox" class="service-filter" value="CV Preparation"> CV Preparation</label>
+            </div>
+            <div class="filter-group">
+                <h3>Sponsor:</h3>
+                <select id="sponsorFilter">
+                    <option value="all">All Sponsors</option>
+                    <option>Petronas</option>
+                    <option>Yayasan Khazanah</option>
+                    <option>JPA</option>
+                    <option>Shell</option>
+                    <option>YTP-MARA</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <h3>Course:</h3>
+                <select id="courseFilter">
+                    <option value="all">All Courses</option>
+                    <option>Engineering</option>
+                    <option>Computer Science</option>
+                    <option>Actuarial Science</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="scholar-grid" id="scholarGrid">
+            <!-- Scholar cards will be populated here -->
+        </div>
+    </div>
+
+    <script>
+const scholars = [
+  {
+    name: "Ahmad Fahmi Bin Ismal Adlan",
+    email: "-",
+    phone: "-",
+    telegram: "fahmiaq37",
+    instagram: "-",
+    sponsor: "YTP-MARA",
+    currentInstitution: "Kolej MARA Banting (IB)",
+    previousInstitution: "MRSM",
+    course: "Actuarial Science",
+    services: ["Essay Proof-Reading", "CV Preparation"],
+    telegram: "fahmiaq47",
+    instagram: "-",
+    image: "images/scholars/fahmi.jpg"
+  },
+  {
+    name: "Shantosh A/L Tamilchilvan",
+    email: "-",
+    phone: "-",
+    telegram: "Shantosh01",
+    instagram: "-",
+    sponsor: "PETRONAS",
+    currentInstitution: "Sunway College (A-Level)",
+    previousInstitution: "SMK",
+    course: "Petroleum Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/shantosh.jpg"
+  },
+  {
+    name: "Erina Natasya",
+    email: "erina.natasya17@gmail.com",
+    phone: "-",
+    telegram: "erinanatasya17",
+    instagram: "erinanatasya17",
+    sponsor: "PETRONAS",
+    currentInstitution: "Sunway College (A-Level)",
+    previousInstitution: "MRSM",
+    course: "Chemical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/erina.jpg"
+  },
+  {
+    name: "Nafis Hafilin",
+    email: "nafishalifin@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "-",
+    sponsor: "PETRONAS",
+    currentInstitution: "Sunway College (A-Level)",
+    previousInstitution: "MRSM",
+    course: "Chemical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/nafis.jpg"
+  },
+  {
+    name: "Nur Allya",
+    email: "-",
+    phone: "-",
+    telegram: "urlocalgoofyahhfeminist",
+    instagram: "nallyaholic",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMK",
+    course: "Law",
+    services: ["Mock Interviews"],
+    image: "images/scholars/allya.jpg"
+  },
+  {
+    name: "Syazwina Amani",
+    email: "amani.aznee@gmail.com",
+    phone: "-",
+    telegram: "syazwina_amani",
+    instagram: "amani.aznee",
+    sponsor: "PNB",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Electrical Engineering",
+    services: ["Essay Proof-Reading"],
+    image: "images/scholars/syazwina.jpg"
+  },
+  {
+    name: "Allif Danish",
+    email: "allifdanishzulfazli@gmail.com",
+    phone: "-",
+    telegram: "adnshh",
+    instagram: "ad.nshh",
+    sponsor: "YTP-MARA",
+    currentInstitution: "University  Malaya",
+    previousInstitution: "SBP",
+    course: "Law",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/allif.jpg"
+  },
+  {
+    name: "Liaw Chong Ye",
+    email: "seanliaw0826@gmail.com",
+    phone: "-",
+    telegram: "LaLaLayaw",
+    instagram: "layawcina",
+    sponsor: "BNM",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Economics",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/liaw.jpg"
+  },
+  {
+    name: "Durrah Wafiqah",
+    email: "durrahwafiqah.pace@gmail.com",
+    phone: "-",
+    telegram: "durrahwafiqah",
+    instagram: "durrahwafiqah__",
+    sponsor: "Yayasan Peneraju",
+    currentInstitution: "INTEC",
+    previousInstitution: "SBP",
+    course: "ACCA",
+    services: ["Mock Interviews"],
+    image: "images/scholars/durrah.jpg"
+  },
+  {
+    name: "Tun Muhammad Anas",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "anasssaris",
+    sponsor: "FGV",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "Kolej PERMATA",
+    course: "Computer Science",
+    services: ["Mock Interviews"],
+    image: "images/scholars/anas.jpg"
+  },
+  {
+    name: "Tan Zhan Yang",
+    email: "-",
+    phone: "0164472467",
+    telegram: "-",
+    instagram: "zhanyang_0219",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMK",
+    course: "Electrical Engineering",
+    services: [],
+    image: "images/scholars/zhanyang.jpg"
+  },
+  {
+    name: "Haris Haziq",
+    email: "-",
+    phone: "-",
+    telegram: "harisnothaziq",
+    instagram: "harishaziiq",
+    sponsor: "PETRONAS",
+    currentInstitution: "Taylor's College (A-Level)",
+    previousInstitution: "SBP",
+    course: "Mechanical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/haris.jpg"
+  },
+  {
+    name: "Sarah Humaira",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "srhzaid",
+    sponsor: "JPA",
+    currentInstitution: "Kolej Yayasan Saad",
+    previousInstitution: "SBP",
+    course: "Accounting",
+    services: ["Mock Interviews"],
+    image: "images/scholars/sarah.jpg"
+  },
+  {
+    name: "Aszreen Aszit",
+    email: "erinaszit@gmail.com",
+    phone: "-",
+    telegram: "aszreenamir",
+    instagram: "-",
+    sponsor: "PETRONAS",
+    currentInstitution: "UTP (Foundation)",
+    previousInstitution: "SBP",
+    course: "Mechanical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/aszreen.jpg"
+  },
+  {
+    name: "Shreya Ashna",
+    email: "-",
+    phone: "-",
+    telegram: "shreyaashna",
+    instagram: "-",
+    sponsor: "PETRONAS",
+    currentInstitution: "Taylor's College (A-Level)",
+    previousInstitution: "SMK",
+    course: "Chemical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/shreya.jpg"
+  },
+  {
+    name: "Zaref Affandi",
+    email: "zaref.affandi@gmail.com",
+    phone: "-",
+    telegram: "zarefaffandi",
+    instagram: "zarefandi",
+    sponsor: "JPA",
+    currentInstitution: "INTEC (ADTP)",
+    previousInstitution: "SBP",
+    course: "Computer Science",
+    services: ["Mock Interviews","CV Preparation"],
+    image: "images/scholars/zaref.jpg"
+  },
+  {
+    name: "Teh Wei Jun",
+    email: "tehline123@gmail.com",
+    phone: "-",
+    telegram: "aarontehwj",
+    instagram: "teh_wei_jun",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Tuanku Ja'afar (A-Level)",
+    previousInstitution: "SMK",
+    course: "Mechanical Engineering",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/tehweijun.jpg"
+  },
+  {
+    name: "Wan Rania Azillah",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "raniahardiman",
+    sponsor: "PETRONAS",
+    currentInstitution: "Sunway College (A-Level)",
+    previousInstitution: "SMK",
+    course: "Electrical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/rania.jpg"
+  },
+  {
+    name: "Rabbiqa",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "rab_134340",
+    sponsor: "PETRONAS",
+    currentInstitution: "Sunway College (A-Level)",
+    previousInstitution: "SMK",
+    course: "Electrical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/rabbiqa.jpg"
+  },
+  {
+    name: "Afiqa binti Zainal Hisham",
+    email: "afiqazainal456@gmail.com",
+    phone: "-",
+    telegram: "aqzain",
+    instagram: "-",
+    sponsor: "BNM",
+    currentInstitution: "Sunway College (A-Level)",
+    previousInstitution: "MRSM",
+    course: "Computer Science",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/afiqa.jpg"
+  },
+  {
+    name: "Simran Kaur Sandhu",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "_simrannsandhu._",
+    sponsor: "Yayasan Khazanah",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMK",
+    course: "Accounting & Finance",
+    services: ["Mock Interviews"],
+    image: "images/scholars/simran.jpg"
+  },
+  {
+    name: "Nur Farzana Hazirah",
+    email: "nurfarzanahazirah.24@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "-",
+    sponsor: "PETRONAS",
+    currentInstitution: "Sunway College (A-Level)",
+    previousInstitution: "SBP",
+    course: "Electrical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/farzana.jpg"
+  },
+  {
+    name: "Syaza Nur Afiqah",
+    email: "-",
+    phone: "0123350650",
+    telegram: "-",
+    instagram: "-",
+    sponsor: "Yayasan UEM",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "Private (SPM)",
+    course: "Accounting & Finance",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/erina.jpg"
+  },
+  {
+    name: "Dhiya Allysa Hana",
+    email: "dhiyaallysahana@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "-",
+    sponsor: "JPA",
+    currentInstitution: "IMU (Foundation in Science)",
+    previousInstitution: "SBP",
+    course: "Medicine",
+    services: ["Mock Interviews","Essay Proof-Reading","CV Preparation"],
+    image: "images/scholars/dhiya.jpg"
+  },
+  {
+    name: "Kaiyisah Anati",
+    email: "kaiyisahanati06@gmail.com",
+    phone: "-",
+    telegram: "kaiyisahh",
+    instagram: "kaiyiisah",
+    sponsor: "PNB",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMK",
+    course: "Electrical Engineering",
+    services: ["Mock Interviews","Essay Proof-Reading","CV Preparation"],
+    image: "images/scholars/kaiyisah.jpg"
+  },
+  {
+    name: "Chow Yu",
+    email: "chowyuzoe@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "zoe.chowyu",
+    sponsor: "Shell",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMJK",
+    course: "Chemical Engineering",
+    services: ["CV Preparation"],
+    image: "images/scholars/chowyu.jpg"
+  },
+  {
+    name: "Amir Fahim Fadzili",
+    email: "fahimfadzili@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "fahimfaz",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Tuanku Ja'afar (A-Level)",
+    previousInstitution: "SBP",
+    course: "Computer Science",
+    services: ["Mock Interviews"],
+    image: "images/scholars/amirfahim.jpg"
+  },
+  {
+    name: "Cindy Ku Kai Chee",
+    email: "cindyck0307@gmail.com",
+    phone: "-",
+    telegram: "ccindy77",
+    instagram: "cndykkc",
+    sponsor: "BNM",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMK",
+    course: "Accounting & Finance",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/cindy.jpg"
+  },
+  {
+    name: "Chen Lit Zhe",
+    email: "clz051025@gmail.com",
+    phone: "0174466588",
+    telegram: "Litzhe05",
+    instagram: "litzhe1025",
+    sponsor: "Yayasan Khazanah",
+    currentInstitution: "UUM",
+    previousInstitution: "SMJK",
+    course: "Law",
+    services: ["Mock Interviews","Essay Proof-Reading","CV Preparation"],
+    image: "images/scholars/chen.jpg"
+  },
+  {
+    name: "Emmer Zaqwan",
+    email: "muhdemmerzaqwan@gmail.com",
+    phone: "-",
+    telegram: "emmerzaqwan",
+    instagram: "emmerzxq",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Geology",
+    services: ["Mock Interviews"],
+    image: "images/scholars/emmer.jpg"
+  },
+  {
+    name: "Wan Muazzamn Syahmi",
+    email: "wanmuazzamsyahmi@gmail.com",
+    phone: "-",
+    telegram: "muazzamsyahmi",
+    instagram: "muazzamsyahmi",
+    sponsor: "BNM",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Economics",
+    services: ["Mock Interviews","Essay Proof-Reading","CV Preparation"],
+    image: "images/scholars/muazzam.jpg"
+  },
+  {
+    name: "Muhammad Harith Ikhwan",
+    email: "ikhwan06ar@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "har_1k1",
+    sponsor: "PNB",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMKA",
+    course: "Physics",
+    services: ["Mock Interviews","Essay Proof-Reading","CV Preparation"],
+    image: "images/scholars/harith.jpg"
+  },
+  {
+    name: "Ali Muiz",
+    email: "alimuiz2006@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "werty_am__",
+    sponsor: "Yayasan Khazanah",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMK",
+    course: "Computer Science",
+    services: ["Mock Interviews","Essay Proof-Reading","CV Preparation"],
+    image: "images/scholars/alimuiz.jpg"
+  },
+  {
+    name: "Danish Deniel",
+    email: "mdanishdeniel@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "danishhdeniel",
+    sponsor: "Shell",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "Private (SPM)",
+    course: "Civil Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/danishdeniel.jpg"
+  },
+  {
+    name: "Afif Danial",
+    email: "afdnl1311@gmail.com",
+    phone: "01128728133",
+    telegram: "afdnl",
+    instagram: "apip.denel",
+    sponsor: "Yayasan Khazanah",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "MRSM",
+    course: "Engineering and Management",
+    services: ["Mock Interviews","CV Preparation"],
+    image: "images/scholars/afifdanial.jpg"
+  },
+  {
+    name: "Nurul Nazhifah",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "nazhifahzaimi",
+    sponsor: "Yayasan Khazanah",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMK",
+    course: "Computer Science",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/nazhifah.jpg"
+  },
+  {
+    name: "Adam Zarif",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "aedem.rslius",
+    sponsor: "Yayasan Khazanah",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "MRSM",
+    course: "Performing Arts",
+    services: ["Mock Interviews"],
+    image: "images/scholars/adamzarif.jpg"
+  },
+  {
+    name: "Tengku Adam Raid",
+    email: "adamraid22@gmail.com",
+    phone: "-",
+    telegram: "adamraiid",
+    instagram: "adamraiid",
+    sponsor: "BNM",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "MRSM",
+    course: "Economics",
+    services: ["Mock Interviews","Essay Proof-Reading","CV Preparation"],
+    image: "images/scholars/adamraid.jpg"
+  },
+  {
+    name: "Farah Carmilea",
+    email: "crmleazainuddin1515@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "carmileazainuddin",
+    sponsor: "Shell",
+    currentInstitution: "Koleh Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Business & Management",
+    services: ["Mock Interviews","CV Preparation"],
+    image: "images/scholars/farahcarmilea.jpg"
+  },
+  {
+    name: "Marissa Dhaniyah",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "m4riss4_dhaniyah",
+    sponsor: "FGV",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "Private (SPM)",
+    course: "Data Science",
+    services: ["Mock Interviews"],
+    image: "images/scholars/marissa.jpg"
+  },
+  {
+    name: "Madiha Aleya",
+    email: "madihareduan@gmail.com",
+    phone: "-",
+    telegram: "miwulla",
+    instagram: "mairdnn",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Chemical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/madiha.jpg"
+  },
+  {
+    name: "Adam Iskandar",
+    email: "reiskandar.adam@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "-",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Chemical Engineering",
+    services: ["Mock Interviews"],
+    image: "images/scholars/adamiskandar.jpg"
+  },
+  {
+    name: "Nur Zulaikha Azharudin",
+    email: "-",
+    phone: "-",
+    telegram: "zzulaikhaazz",
+    instagram: "-",
+    sponsor: "Yayasan Daya Diri",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Economics",
+    services: ["Mock Interviews"],
+    image: "images/scholars/zulaikha.jpg"
+  },
+  {
+    name: "Nur Alesha Zahra",
+    email: "naleshazahra@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "_aleshazahra",
+    sponsor: "Yayasan Khazanah",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SBP",
+    course: "Bioengineering",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/alesha.jpg"
+  },
+  {
+    name: "Tengku Aiman",
+    email: "tgaiman2202@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "_tengkuaiman",
+    sponsor: "Yayasan UEM",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "Private (SPM)",
+    course: "Civil Engineering",
+    services: ["Mock Interviews","Essay Proof-Reading","CV Preparation"],
+    image: "images/scholars/tengkuaiman.jpg"
+  },
+  {
+    name: "Jasmine Hasya",
+    email: "jasmine.hasya1703@gmail.com",
+    phone: "-",
+    telegram: "-",
+    instagram: "jsmnhasya",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "Private (SPM)",
+    course: "Economics",
+    services: ["Mock Interviews","CV Preparation"],
+    image: "images/scholars/jasmine.jpg"
+  },
+  {
+    name: "Sofea Aleisha",
+    email: "sofea.a_see@yahoo.com",
+    phone: "-",
+    telegram: "aleishaz",
+    instagram: "-",
+    sponsor: "PETRONAS",
+    currentInstitution: "Kolej Yayasan UEM (A-Level)",
+    previousInstitution: "SMK",
+    course: "Chemical Engineering",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/sofea.jpg"
+  },
+  {
+    name: "Parthasarathe Jayashanker",
+    email: "-",
+    phone: "-",
+    telegram: "-",
+    instagram: "parthasarathe_",
+    sponsor: "Merit Scholarship",
+    currentInstitution: "DISTED College (A-Level)",
+    previousInstitution: "SMJK",
+    course: "Medicine",
+    services: [],
+    image: "images/scholars/partha.jpg"
+  },
+  {
+    name: "Ayuni Saffiya binti Shahril Nizam",
+    email: "ayunisaffiya@icloud.com",
+    phone: "0196641182",
+    telegram: "-",
+    instagram: "-",
+    sponsor: "Merit Scholarship",
+    currentInstitution: "Kolej Yayasan UEM (A-levels)",
+    previousInstitution: "Private (SPM)",
+    course: "Mathematics",
+    services: ["Mock Interviews","Essay Proof-Reading"],
+    image: "images/scholars/ayuni.jpg"
+  },
+
+
+            // Add more scholars as needed
+        ];
+
+        function populateScholarGrid(filteredScholars) {
+            const grid = document.getElementById('scholarGrid');
+            grid.innerHTML = '';
+
+            filteredScholars.forEach(scholar => {
+                const card = document.createElement('div');
+                card.className = 'scholar-card';
+                card.innerHTML = `
+                    <img src="${scholar.image}" class="scholar-image" alt="${scholar.name}">
+                    <h2 class="scholar-name">${scholar.name}</h2>
+                    <div class="scholar-details">
+<p><strong>Course:</strong> ${scholar.course}</p>
+                <p><strong>Sponsor:</strong> ${scholar.sponsor}</p>
+                <p><strong>Current Institution:</strong> ${scholar.currentInstitution}</p>
+                <p><strong>Previous Institution:</strong> ${scholar.previousInstitution}</p>
+                    </div>
+                    <div class="scholar-services">
+                        ${scholar.services.map(service => 
+                            `<span class="service-tag">${service}</span>`
+                        ).join('')}
+                    </div>
+                    <div class="scholar-contact">
+                        <a href="mailto:${scholar.email}" class="contact-link">
+                            <i class="fas fa-envelope"></i>${scholar.email}
+                        </a>
+                        <a href="https://t.me/${scholar.telegram}" class="contact-link">
+                            <i class="fab fa-telegram"></i>@${scholar.telegram}
+                        </a>
+                        <a href="https://instagram.com/${scholar.instagram}" class="contact-link">
+                            <i class="fab fa-instagram"></i>@${scholar.instagram}
+                        </a>
+                    </div>
+                                <div class="scholar-contact">
+                <a href="tel:${scholar.phone}" class="contact-link">
+                    <i class="fas fa-phone"></i>${scholar.phone}
+                </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.service-filter, #sponsorFilter, #courseFilter').forEach(element => {
+            element.addEventListener('change', applyFilters);
+        });
+
+        function applyFilters() {
+            const selectedServices = Array.from(document.querySelectorAll('.service-filter:checked'))
+                .map(checkbox => checkbox.value);
+            
+            const selectedSponsor = document.getElementById('sponsorFilter').value;
+            const selectedCourse = document.getElementById('courseFilter').value;
+
+            const filtered = scholars.filter(scholar => {
+                const serviceMatch = selectedServices.length === 0 || 
+                    selectedServices.every(service => scholar.services.includes(service));
+                
+                const sponsorMatch = selectedSponsor === 'all' || 
+                    scholar.sponsor.includes(selectedSponsor);
+                
+                const courseMatch = selectedCourse === 'all' || 
+                    scholar.course === selectedCourse;
+
+                return serviceMatch && sponsorMatch && courseMatch;
+            });
+
+            populateScholarGrid(filtered);
+        }
+
+        // Initial load
+        window.onload = () => {
+            populateScholarGrid(scholars);
+        };
+    </script>
+</body>
+
         <!-- <div class="owl-carousel testimonials-carousel" data-aos="fade-up" data-aos-delay="">
 
           <!-- SCHOLAR: YK -->
