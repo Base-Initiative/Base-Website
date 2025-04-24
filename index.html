@@ -1655,8 +1655,7 @@ const scholars = [
                 `;
                 grid.appendChild(card);
             });
-          filteredScholars.forEach(scholar => {
-    // Skip if both Instagram and phone are missing
+          
     if ((scholar.instagram === "-" || !scholar.instagram) &&
         (scholar.phone === "-" || !scholar.phone)) {
         return; // Skip this scholar
