@@ -1655,6 +1655,10 @@ const scholars = [
           
         ];
 
+      scholars.sort((a, b) => a.name.localeCompare(b.name));
+
+console.log(scholars);
+
 
         function populateScholarGrid(filteredScholars) {
             const grid = document.getElementById('scholarGrid');
