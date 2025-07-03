@@ -1454,17 +1454,17 @@ card.innerHTML = `
         ).join('')}
     </div>
     <div class="scholar-contact">
-        ${scholar.email && scholar.email !== "-" ? `
+        ${scholar.email && scholar.email !== "disabled" ? `
             <a href="mailto:${scholar.email}" class="contact-link">
                 <i class="fas fa-envelope"></i>${scholar.email}
             </a>` : ''
         }
-        ${scholar.telegram && scholar.telegram !== "-" ? `
+        ${scholar.telegram && scholar.telegram !== "disabled" ? `
             <a href="https://t.me/${scholar.telegram}" class="contact-link">
                 <i class="fab fa-telegram"></i>@${scholar.telegram}
             </a>` : ''
         }
-        ${scholar.instagram && scholar.instagram !== "-" ? `
+        ${scholar.instagram && scholar.instagram !== "disabled" ? `
             <a href="https://instagram.com/${scholar.instagram}" class="contact-link">
                 <i class="fab fa-instagram"></i>@${scholar.instagram}
             </a>` : ''
